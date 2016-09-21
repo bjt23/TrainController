@@ -1,4 +1,5 @@
 //PROPERTY OF CHRISTOPHER PASKIE
+//NOTE: most of the code for the complete class has been omitted by Ben Tomasulo
 
 package TKM;
 import TNM.*;
@@ -75,13 +76,6 @@ public class Block //extends TrackElement
         this.trackCircuitFailure = trackCircuitFailure;
         this.powerFailure = powerFailure;
     }
-
-
-/*    public void connect(TrackElement prev, TrackElement next)
-    {
-        this.prev = prev;
-        this.next = next;
-    }*/
                         
 
     public boolean isOccupied() {
@@ -90,125 +84,12 @@ public class Block //extends TrackElement
     }
 
 
-/*    private Block getSwitchDest(Switch sw, boolean dryRun) {
-        if (!dryRun) System.out.printf("Switch %d from block %d\n", sw.id, this.id);
-         NYI: Derail if switch is not set properly 
-        
-        if (this == sw.blkMain) {
-             Go in the direction according to the switch state 
-            if (sw.state == Switch.STATE_STRAIGHT)
-                return sw.blkStraight;
-            else if (sw.state == Switch.STATE_DIVERGENT)
-                return sw.blkDiverg;
-        } else if (this == sw.blkStraight) {
-            if (!dryRun && sw.state != Switch.STATE_STRAIGHT) {
-                System.out.printf("Warning: switch %d auto-flipped to STRAIGHT\n", sw.id);
-                sw.state = Switch.STATE_STRAIGHT;
-            }
-            return sw.blkMain;
-        } else if (this == sw.blkDiverg) {
-            if (!dryRun && sw.state != Switch.STATE_DIVERGENT) {
-                System.out.printf("Warning: switch %d auto-flipped to DIVERGENT\n", sw.id);
-                sw.state = Switch.STATE_DIVERGENT;
-            }
-            return sw.blkMain;
-        }
-        
-        System.out.print("Switching error\n");
-        return null;
-    }
-*/
+
     public Block getNext(boolean direction) {
         return null; //getNext(direction, true);
     }
 
-/*    public Block getNext(boolean direction, boolean dryRun) {
 
-        Block dest = null;
-
-        if (direction == DIRECTION_FWD) {  direction is toward next 
-            if (next != null && next instanceof Switch) {
-                dest =  getSwitchDest((Switch) next, dryRun);
-            } else {
-                dest = (Block) next;
-            }
-        } else {  direction is toward prev 
-            if (prev != null && prev instanceof Switch) {
-                dest = getSwitchDest((Switch) prev, dryRun);
-            } else {
-                 prev is a block 
-                dest = (Block) prev;
-            }
-        }
-
-        return dest;
-    }*/
-
-    /*public static void advanceTrain(Train train, double distance) {
-         TODO: Implement negative distance 
-        if (distance < -SMALL_DOUBLE) {
-            distance = 0.0;
-            System.out.printf("Train traveling backwards!\n");
-        }
-        
-         Ensure we can legally travel in the requested direction 
-        if (train.positionDirection == DIRECTION_FWD) {
-            train.positionMeters += distance;
-        } else {
-            if (!train.positionBlock.isBidir && !train.positionBlock.isYard) {
-                System.out.printf("Unauthorized travel direction!\n");
-                //resp.failed = true;
-                //return;
-            }
-            train.positionMeters -= distance;
-        }
-
-         Determine the new location of the front of the train 
-        if ((-SMALL_DOUBLE < train.positionMeters) && (train.positionMeters < (train.positionBlock.length + SMALL_DOUBLE))) {
-
-             Stay within current block 
-            train.positionBlock.occupied = true;
-
-             Have the train become fully inside this block? 
-            if (
-                train.positionBlock != train.positionBlockTail // Not already contained within a block
-                && ((
-                    train.positionDirection == DIRECTION_FWD &&
-                    train.positionMeters > train.length
-                ) || (
-                    train.positionDirection == DIRECTION_REV &&
-                    (train.positionBlock.length - train.positionMeters) > train.length
-                ))) {
-                    train.positionBlockTail.occupied = false;
-                    train.positionBlockTail = train.positionBlock;
-                }
-            return;
-        } else {
-            
-             Move to next block 
-            Block dest = train.positionBlock.getNext(train.positionDirection, false);
-
-             Default direction may have changed 
-            if (dest.getNext(train.positionDirection, true) == train.positionBlock) {
-                 Default direction is opposite current default 
-                train.positionDirection = !train.positionDirection;
-                if (train.positionMeters < SMALL_DOUBLE) train.positionMeters = -train.positionMeters;
-                else train.positionMeters = dest.length - (train.positionMeters - train.positionBlock.length);
-            } else {  default direction doesn't change 
-                if (train.positionMeters < SMALL_DOUBLE) train.positionMeters = train.positionMeters + dest.length;
-                else train.positionMeters = train.positionMeters - train.positionBlock.length;
-            }
-            
-             Determine the new occupancy states of all blocks involved 
-             TODO: Make this work correctly 
-            dest.occupied = true;
-
-            train.positionBlock = dest;
-
-             TODO: Make this more realistic 
-            train.routeIndex++;
-        }
-    }*/
 
     public String toString()
     {
