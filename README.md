@@ -1,4 +1,4 @@
 # TrainController
 Train Controller code for Pittsburgh Light Rail Simulation
 
-Breathless Bovine was the group name for this project, omitted were the pieces of code written by the 5 other group members.  See documentation folder for further details.
+Breathless Bovine was the group name for this project. Omitted were the pieces of code written by the 5 other group members necessary for the full simulation of the rail system, however the function of these other parts in relation to the Train Controller are described in the documentation and the inputs may be manually overriden for stand-alone testing of the Train Controller.  See documentation folder for further details.
