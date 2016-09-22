@@ -1,4 +1,4 @@
-//PROPERTY OF CHRISTOPHER PASKIE
+//PROPERTY OF STEPHEN ALBERT
 //NOTE: most of the code for the complete class has been omitted by Ben Tomasulo
 
 package TKM;
